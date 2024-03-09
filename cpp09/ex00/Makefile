@@ -1,10 +1,10 @@
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp BitcoinExchange.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = Serializer
+NAME = btc
 
 all: $(NAME)
 

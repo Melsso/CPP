@@ -6,11 +6,11 @@
 /*   By: smallem <smallem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:51:09 by smallem           #+#    #+#             */
-/*   Updated: 2024/01/17 12:25:46 by smallem          ###   ########.fr       */
+/*   Updated: 2024/03/07 16:22:43 by smallem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serializer.hpp"
+#include "Serializer.hpp"
 
 Serializer::Serializer(void) {
 	std::cout << "Serializer constructor called" << std::endl;

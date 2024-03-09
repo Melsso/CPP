@@ -6,7 +6,7 @@
 /*   By: smallem <smallem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:41:15 by smallem           #+#    #+#             */
-/*   Updated: 2024/03/07 16:09:13 by smallem          ###   ########.fr       */
+/*   Updated: 2024/03/09 15:54:12 by smallem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void    print(bool c_flag, bool i_flag, bool f_flag, bool d_flag, bool inf_flag,
     int     n;
     float   f;
     double  d;
+    char    *res;
 
     if (c_flag) {
         std::cout << "Char  : " << str[0] << std::endl;
@@ -52,7 +53,7 @@ void    print(bool c_flag, bool i_flag, bool f_flag, bool d_flag, bool inf_flag,
         std::cout << std::fixed << std::setprecision(1) << "Double: " << static_cast<double>(str[0]) << std::endl; 
     }
     else if (i_flag) {
-        n = std::stoi(str);
+        n = std::atoi(str.c_str());
         if (n >= 32 && n <= 127)
             std::cout << "Char  : " << static_cast<char>(n) << std::endl;
         else
@@ -62,7 +63,11 @@ void    print(bool c_flag, bool i_flag, bool f_flag, bool d_flag, bool inf_flag,
         std::cout << std::fixed << std::setprecision(1) << "Double: " << static_cast<double>(n) << std::endl; 
     }
     else if (f_flag) {
-        f = std::stof(str);
+        // f = std::stof(str);
+        std::string tmp = str.substr(0, str.length() - 1);
+        f = std::strtof(tmp.c_str(), &res);
+        if (*res != '\0')
+            throw std::invalid_argument("Invalid input for stof");
         if (f >= 32 && f <= 127)
             std::cout << "Char  : " << static_cast<char>(f) << std::endl;
         else if (inf_flag)
@@ -78,7 +83,10 @@ void    print(bool c_flag, bool i_flag, bool f_flag, bool d_flag, bool inf_flag,
         std::cout << std::fixed << "Double: " << static_cast<double>(f) << std::endl;
     }
     else if (d_flag) {
-        d = std::stod(str);
+        // d = std::stod(str);
+        d = std::strtod(str.c_str(), &res);
+        if (*res != '\0')
+            throw std::invalid_argument("Invalid input for stod");
         if (d >= 32 && d <= 127)
             std::cout << "Char  : " << static_cast<char>(d) << std::endl;
         else if (inf_flag)

@@ -6,11 +6,11 @@
 /*   By: smallem <smallem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:59 by smallem           #+#    #+#             */
-/*   Updated: 2024/03/06 17:46:51 by smallem          ###   ########.fr       */
+/*   Updated: 2024/03/07 16:22:51 by smallem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serializer.hpp"
+#include "Serializer.hpp"
 
 int main(void) {
 	Data 		my_data;
